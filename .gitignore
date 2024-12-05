@@ -1,0 +1,63 @@
+# Dependências do Node
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Compilações de produção
+/build
+/.next
+/out
+/dist
+
+# Resultados do build de desenvolvimento
+*.cache
+.cache-loader
+
+# Build do Docker
+docker-compose.override.yml
+
+# Relacionados a IDEs/Editor
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Test Coverage
+coverage/
+
+# Diretórios do Yarn
+.pnp/
+.pnp.js
+
+# Configurações de ambiente
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Arquivos de configurações locais
+/local
+
+# Arquivos de Configuração do ESLint
+.eslintcache
+
+# Cache do Next.js
+.next/cache
+
+# Diretórios específicos do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de saída do Storybook
+storybook-static
+
+# Arquivos de configuração do VSCode
+settings.json
+
