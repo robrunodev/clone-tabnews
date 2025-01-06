@@ -3,7 +3,7 @@ function Products() {
 }
 
 function teste() {
-  console.log("teste")
+  console.log("teste");
 }
 
-export default Products
+export default Products;
