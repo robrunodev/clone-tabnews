@@ -3,10 +3,15 @@ test("GET to /api/vi/status should return 200", async () => {
   expect(response.status).toBe(200);
 
   const responseBody = await response.json();
-  const { updated_at } = responseBody;
+  const { updated_at, dependencies } = responseBody;
+  const { version, max_connections, opened_connections } =
+    dependencies.database;
 
   const parsedUpdatedAt = new Date(updated_at).toISOString();
-  expect(updated_at).toBeDefined();
+
   expect(updated_at).toEqual(parsedUpdatedAt);
-  console.log({ responseBody });
+  expect(version).toEqual(17.4);
+  expect(max_connections).toEqual(100);
+  expect(opened_connections).toEqual(1);
+  console.log({ responseBody, version, max_connections, opened_connections });
 });
