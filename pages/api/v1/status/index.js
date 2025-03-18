@@ -7,9 +7,13 @@ export default async function status(req, res) {
   const databaseMaxConnections = await database.query(
     "SELECT SETTING from pg_settings where NAME = 'max_connections';",
   );
-  const openedConnections = await database.query(
-    "SELECT count(*)::int from pg_stat_database WHERE datname = 'local_db';",
-  );
+  const databaseName = process.env.POSTGRES_DB;
+  console.log(`Banco de dados selecionado: ${databaseName}`);
+
+  const openedConnections = await database.query({
+    text: `SELECT count(*)::int from pg_stat_database WHERE datname=$1;`,
+    values: [databaseName],
+  });
 
   const updatedAt = new Date().toISOString();
   return res.status(200).json({
