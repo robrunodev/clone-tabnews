@@ -2,16 +2,16 @@ import database from "infra/database";
 
 export default async function status(req, res) {
   const postrgresVersion = await database.query(
-    "SELECT SETTING from pg_settings where NAME = 'server_version';",
+    "SELECT SETTING FROM pg_settings WHERE NAME = 'server_version';",
   );
   const databaseMaxConnections = await database.query(
-    "SELECT SETTING from pg_settings where NAME = 'max_connections';",
+    "SELECT SETTING FROM pg_settings WHERE NAME = 'max_connections';",
   );
   const databaseName = process.env.POSTGRES_DB;
   // console.log(`Banco de dados selecionado: ${databaseName}`);
 
   const openedConnections = await database.query({
-    text: `SELECT count(*)::int from pg_stat_database WHERE datname=$1;`,
+    text: "SELECT count(*)::int FROM pg_stat_activity WHERE datname = $1;",
     values: [databaseName],
   });
 
