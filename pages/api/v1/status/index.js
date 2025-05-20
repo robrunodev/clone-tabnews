@@ -8,7 +8,6 @@ export default async function status(req, res) {
     "SELECT SETTING FROM pg_settings WHERE NAME = 'max_connections';",
   );
   const databaseName = process.env.POSTGRES_DB;
-  // console.log(`Banco de dados selecionado: ${databaseName}`);
 
   const openedConnections = await database.query({
     text: "SELECT count(*)::int FROM pg_stat_activity WHERE datname = $1;",

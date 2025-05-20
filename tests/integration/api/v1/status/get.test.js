@@ -13,5 +13,4 @@ test("GET to /api/vi/status should return 200", async () => {
   expect(version).toEqual(17.4);
   expect(max_connections).toEqual(100);
   expect(opened_connections).toEqual(1);
-  // console.log({ responseBody, version, max_connections, opened_connections });
 });
