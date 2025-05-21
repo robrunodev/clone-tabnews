@@ -15,14 +15,16 @@ export default async function status(req, res) {
   });
 
   const updatedAt = new Date().toISOString();
-  return res.status(200).json({
-    updated_at: updatedAt,
-    dependencies: {
-      database: {
-        version: Number(postrgresVersion.rows[0].setting),
-        max_connections: Number(databaseMaxConnections.rows[0].setting),
-        opened_connections: openedConnections.rows[0].count,
+  return res
+    .status(200)
+    .json({
+      updated_at: updatedAt,
+      dependencies: {
+        database: {
+          version: Number(postrgresVersion.rows[0].setting),
+          max_connections: Number(databaseMaxConnections.rows[0].setting),
+          opened_connections: openedConnections.rows[0].count,
+        },
       },
-    },
-  });
+    });
 }
