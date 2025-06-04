@@ -20,7 +20,6 @@ export default async function migrations(req, res) {
     });
 
     await dbClient.end();
-
     return res.status(200).json(pendingMigrations);
   } else if (req.method === "POST") {
     const migratedMigrations = await migrationRunner({
@@ -36,5 +35,6 @@ export default async function migrations(req, res) {
     return res.status(200).json(migratedMigrations);
   }
 
+  await dbClient.end();
   return res.status(404).end("Not Found");
 }
