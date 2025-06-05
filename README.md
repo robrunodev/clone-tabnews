@@ -19,3 +19,9 @@ Implementação do `https://www.tabnews.com.br/` pra treino em projetos pessoais
 ```JS
 curl -s ...url/api/v1/status | python3 -m json.tool
 ```
+
+### Acessos com CURL adicionando método
+
+```JS
+curl -s -X DELETE .../api/v1/migrations | python -m json.tool
+```
