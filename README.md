@@ -14,7 +14,7 @@ Implementação do `https://www.tabnews.com.br/` pra treino em projetos pessoais
 - yarn test:watch -- migrations
 ```
 
-## Acessos com CURL
+## Acessos com CURL formatando JSON com Python
 
 ```JS
 curl -s ...url/api/v1/status | python3 -m json.tool
@@ -24,4 +24,10 @@ curl -s ...url/api/v1/status | python3 -m json.tool
 
 ```JS
 curl -s -X DELETE .../api/v1/migrations | python -m json.tool
+```
+
+## Acessos com CURL e formatando JSON com jq(já incluso em sistemas Linux, macOS e etc)
+
+```JS
+curl -s .../api/v1/status | jq
 ```
